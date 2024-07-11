@@ -43,9 +43,9 @@ export const getAccountSummary = async (id: string | undefined) => {
     try {
         const res: any | undefined = await graphQLClient.request(generateSummaryQuery(id));
         const account: any | undefined = res.player;
-        const creationDate: Date = new Date(account.steamAccount.timeCreated)
-        const firstMatchDate: Date = new Date(account.firstMatchDate)
-        const lastMatchDate: Date = new Date(account.lastMatchDate)
+        const creationDate: string = new Date(account.steamAccount.timeCreated).toDateString();
+        const firstMatchDate: string = new Date(account.firstMatchDate).toDateString();
+        const lastMatchDate: string = new Date(account.lastMatchDate).toDateString();
 
         const client = await db.connect()
         await client.sql`BEGIN`;

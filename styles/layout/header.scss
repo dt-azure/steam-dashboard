@@ -1,0 +1,33 @@
+@import "../../styles/styleVariables.scss";
+
+.sidebar-toggle {
+    font-size: 1.5rem;
+    color: $color-grey;
+    transition: $transition-basic-1;
+
+    &:hover {
+        color: $color-grey-dark;
+    }
+}
+
+.header {
+    border-bottom: 1px solid $border-grey;
+}
+
+.refresh-btn {
+    border-color: $color-blue;
+}
+
+.question-icon {
+    margin-left: 10px;
+    border: 1px solid $color-grey;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.header-tooltip {
+    max-width: 400px;
+    font-weight: 600;
+}

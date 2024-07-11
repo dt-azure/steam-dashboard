@@ -1,0 +1,11 @@
+.sidebar {
+    min-width: 150px;
+    min-height: 100vh;
+    margin-left: -150px;
+    background: red;
+    transition: margin-left 0.3s ease-in-out;
+
+    &.show {
+        margin-left: 0;
+    }
+}

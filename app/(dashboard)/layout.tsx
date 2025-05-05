@@ -25,7 +25,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const steamId: string | undefined = process.env.STEAM_ACCOUNT_ID;
-  const profile: ProfileProps = await fetchAccountSummary()
+  const profile: ProfileProps | undefined = await fetchAccountSummary()
 
   // Revalidate data
   // revalidatePath('/', 'layout')

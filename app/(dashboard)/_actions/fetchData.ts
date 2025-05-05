@@ -1,3 +1,4 @@
+import { ProfileProps } from "@/lib/definition"
 import { sql } from "@vercel/postgres"
 
 export const fetchAccountSummary = async () => {
@@ -5,7 +6,11 @@ export const fetchAccountSummary = async () => {
         const data = await sql`SELECT * FROM account`
         // console.log(data);
 
-        return data.rows[0]
+        if (data.rows.length > 0) {
+            return data.rows[0] as ProfileProps;
+        }
+        
+        return undefined;
     } catch (err) {
         throw new Error("Failed to fetch data.")
     }

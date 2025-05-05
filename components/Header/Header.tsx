@@ -11,7 +11,7 @@ import { ProfileProps } from "@/lib/definition";
 
 const tooltipContent = "To avoid spamming the APIs (some have daily limits applied) the data will be refreshed manually by me then pushed to a database."
 
-export default function Header({ profile }: { profile: ProfileProps }) {
+export default function Header({ profile }: { profile: ProfileProps  | undefined}) {
     const [isShowSidebar, setIsShowSidebar] = useSidebar()
 
 

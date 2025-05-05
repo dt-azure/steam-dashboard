@@ -1,3 +1,23 @@
+body {
+    
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        background-color: $font-grey;
+    }
+
+    &::-webkit-scrollbar {
+        width: 12px;
+        // background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 12px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: $bg-blue;
+    }
+}
+
 .main-header {
     font-size: 2rem;
     font-weight: 700;
@@ -6,4 +26,19 @@
 .title-sm {
     font-size: 1.2rem;
     font-weight: 700;
+}
+
+.main-body {
+    background: $bg-dark;
+}
+
+.section-body {
+    background: transparent;
+    border: 1px solid $border-grey;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
 }

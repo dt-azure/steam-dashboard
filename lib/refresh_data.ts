@@ -39,7 +39,7 @@ const generateSummaryQuery = (id: string | undefined) => {
   `;
 }
 
-export const getAccountSummary = async (id: string | undefined) => {
+export async function getAccountSummary(id: string | undefined) {
     try {
         const res: any | undefined = await graphQLClient.request(generateSummaryQuery(id));
         const account: any | undefined = res.player;
@@ -48,16 +48,17 @@ export const getAccountSummary = async (id: string | undefined) => {
         const lastMatchDate: string = new Date(account.lastMatchDate).toDateString();
 
         const client = await db.connect()
-        await client.sql`BEGIN`;
-        await client.sql`
+
+        // await client.sql`BEGIN`;
+        await sql`
         INSERT INTO account(id, name, avatar, profile_url, account_level, date_created, first_match_date, last_match_date, match_count, win_count)
         VALUES (${account.steamAccountId}, ${account.identity.name}, ${account.steamAccount.avatar}, ${account.steamAccount.profileUri}, ${account.steamAccount.dotaAccountLevel}, ${creationDate}, ${firstMatchDate}, ${lastMatchDate}, ${account.matchCount}, ${account.winCount})
         `
-        await client.sql`COMMIT`;
+        // await client.sql`COMMIT`;
 
         console.log(res);
 
-        return { message: "Account summary updated successfully." }
+        return
     } catch (error) {
         console.log(error);
         throw Error

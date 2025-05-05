@@ -1,7 +1,10 @@
+@import "../styleVariables.scss";
+
 .dashboard-card {
-    height: 150px;
-    width: 300px;
-    border: 1px solid black;
+    height: 130px;
+    width: 250px;
+    border: 2px solid $border-grey;
+    color: white;
 }
 
 .card-title {
@@ -11,4 +14,16 @@
 .card-data {
     font-size: 3rem;
     font-weight: 600;
+}
+
+.card-red {
+    background: $bg-red;
+}
+
+.card-blue {
+    background: $bg-blue;
+}
+
+.card-yellow {
+    background: $bg-yellow;
 }

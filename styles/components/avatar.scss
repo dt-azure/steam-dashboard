@@ -1,0 +1,12 @@
+@import "../styleVariables.scss";
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    outline: 2px solid rgb(212, 212, 216);
+    outline-offset: 2px;
+}
+
+.profile-name {
+    color: $color-blue-ranni;
+}

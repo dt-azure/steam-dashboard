@@ -1,7 +1,28 @@
-$color-grey: rgba(44, 56, 74, 0.681);
-$color-grey-dark: rgba(44, 56, 74, 0.95);
+$color-grey: #2c384aae;
+$color-grey-dark: #2c384af2;
+$color-blue: #3abef9;
+$color-blue-ranni: #32516d;
+$color-pink: #f17eb8;
+$color-red: #dc3545;
+$color-green: #06D001;
+
+// Background
+$bg-blue: #0d6efd;
+$bg-blue-light: #0dcaf0;
+$bg-yellow: #ffc107;
+$bg-red: #dc3545;
+$bg-grey: rgb(222, 226, 230, 0.4);
+$bg-grey-blurred: rgb(222, 226, 230, 0.1);
+$bg-dark: #212529;
+$bg-blue: rgba(93,135,255,0.85);
+
+// Border
 $border-grey: #dee2e6;
-$color-blue: #3ABEF9;
+$border-grey-2: #d1d5db;
+$border-grey-light: rgba(209, 213, 219, 0.3);
+
+// Font
+$font-grey: #dee2e6;
 
 // Transition settings
 $transition-basic-1: all 0.2s ease-in-out;

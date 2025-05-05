@@ -4,12 +4,17 @@ import React from "react";
 import { useSidebar } from "../Sidebar/SidebarProvider";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faQuestion } from '@fortawesome/free-solid-svg-icons'
-import { Button, Popover, PopoverContent, PopoverTrigger, Tooltip } from "@nextui-org/react";
+import { Tooltip } from "@nextui-org/react";
+import RefreshButton from "../Button/RefreshButton";
+import {  refreshRecentMatches } from "@/app/(dashboard)/_actions/refresh";
+import { ProfileProps } from "@/lib/definition";
 
 const tooltipContent = "To avoid spamming the APIs (some have daily limits applied) the data will be refreshed manually by me then pushed to a database."
 
-export default function Header() {
+export default function Header({ profile }: { profile: ProfileProps }) {
     const [isShowSidebar, setIsShowSidebar] = useSidebar()
+
+
 
     const toggleSidebar = () => {
         setIsShowSidebar(!isShowSidebar)
@@ -21,8 +26,9 @@ export default function Header() {
                 <FontAwesomeIcon icon={faBars} />
             </button>
 
-            <div className="flex-grow flex items-center justify-center">
-                <h1 className="main-header">Steam Account Statistics</h1>
+            <div className="flex-grow flex justify-center items-center">
+                <h1 className="main-header mr-20">Steam Account Statistics</h1>
+                
             </div>
 
             <ul className="ml-6 flex gap-10 items-center justify-center">
@@ -35,11 +41,12 @@ export default function Header() {
                 </li>
 
                 <li className="flex items-center">
-                    <a href="/">
-                        <Button radius="sm" className="refresh-btn mr-6">Refresh</Button>
-                    </a>
+                    {/* <RefreshButton fetchData={fetchData.bind(null, profile.id)} /> */}
+                    {/* <RefreshButton fetchData={refreshRecentMatches.bind(null, profile.id, null)} /> */}
+         
+                </li>
 
-
+                <li>
                     <Tooltip content={tooltipContent} delay={0}
                         closeDelay={0}
                         motionProps={{

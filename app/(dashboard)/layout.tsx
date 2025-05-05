@@ -4,6 +4,12 @@ import SidebarProvider from "@/components/Sidebar/SidebarProvider";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import SidebarNav from "@/components/Sidebar/SidebarNav";
 import Header from "@/components/Header/Header";
+import { revalidatePath } from "next/cache";
+import { NextUIProvider } from "@nextui-org/react";
+import { fetchAccountSummary } from "./_actions/fetchData";
+import { profile } from "console";
+import { ProfileProps } from "@/lib/definition";
+
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -13,26 +19,33 @@ export const metadata: Metadata = {
   description: "Steam Account Statistics - Made By Trung Nguyen",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <SidebarProvider>
-      <div className="flex">
-        <Sidebar>
-          <SidebarNav />
-        </Sidebar>
+  const steamId: string | undefined = process.env.STEAM_ACCOUNT_ID;
+  const profile: ProfileProps = await fetchAccountSummary()
 
-        <div className="main-body grow">
-          <Header />
-          <div className="py-4 px-6">
-            {children}
+  // Revalidate data
+  // revalidatePath('/', 'layout')
+
+  return (
+    <NextUIProvider>
+      <SidebarProvider>
+        <div className="flex">
+          <Sidebar>
+            <SidebarNav />
+          </Sidebar>
+
+          <div className="flex flex-col grow">
+            <Header profile={profile} />
+            <div className="main-body grow py-4">
+              {children}
+            </div>
           </div>
         </div>
-      </div>
-    </SidebarProvider>
-
+      </SidebarProvider>
+    </NextUIProvider>
   );
 }

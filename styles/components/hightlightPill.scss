@@ -1,0 +1,9 @@
+@import "../styleVariables.scss";
+
+.pill {
+    color: white;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background-color: $color-red;
+    border: 2px solid $border-grey;
+}

@@ -1,0 +1,120 @@
+@import "../styleVariables.scss";
+
+.chart-tooltip {
+    padding: 8px;
+    background: $color-grey;
+}
+
+.recent-matches-cards {
+    margin-top: 36px;
+}
+
+.recent-matches-card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid $border-grey-light;
+    border-radius: 2px;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+    cursor: default;
+
+    &:hover {
+        background: $bg-grey-blurred;
+    }
+}
+
+.recent-matches-stat {
+    font-size: 2rem;
+}
+
+.hero-chart-tick {
+    font-size: 0.8rem;
+}
+
+.hero-breakdown-table {
+    cursor: default;
+    & > div {
+        max-width: 80vw;
+    }
+}
+
+.hero-breakdown-table-wrapper {
+    background: $bg-grey-blurred;
+
+    thead > tr > th {
+        background: transparent;
+        color: $font-grey;
+        font-size: 1.1rem;
+        font-weight: 700;
+        padding: 1rem 1.2rem;
+    }
+
+    th > tr > th:first-of-type {
+        min-width: 200px;
+    }
+
+    tbody > tr > td {
+        text-align: right;
+        padding-right: 30px;
+
+        &:first-of-type {
+            text-align: left;
+        }
+    }
+
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 6px;
+        background-color: $font-grey;
+    }
+
+    &::-webkit-scrollbar {
+        height: 12px;
+        // background-color: #f5f5f5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 6px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: $bg-blue;
+    }
+
+    nav {
+        ul {
+            span {
+                background-color: $font-grey;
+                --tw-shadow-colored: none;
+                color: $color-grey;
+            }
+
+            li {
+                background: transparent;
+                color: $font-grey;
+                border-radius: 12px !important;
+
+                &[data-hover="true"] {
+                    color: $color-grey;
+                }
+            }
+        }
+    }
+}
+
+.hero-portrait {
+    width: 150px;
+    justify-content: left;
+    
+    span {
+        background: transparent;
+        margin-right: 4px;
+
+        img {
+            height: 30px;
+            width: 30px;
+        }
+    }
+}
